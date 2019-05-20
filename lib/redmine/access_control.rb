@@ -45,7 +45,7 @@ module Redmine
 
       # Get a sorted array of module names
       def sorted_modules
-        @modules
+        modules
           .sort_by { |a| [-a[:order], l_or_humanize(a[:name], prefix: 'project_module')] }
           .map { |entry| entry[:name].to_s }
           .uniq
@@ -53,6 +53,10 @@ module Redmine
 
       def permissions
         @permissions
+      end
+
+      def modules
+        @modules
       end
 
       # Returns the permission of given name or nil if it wasn't found
